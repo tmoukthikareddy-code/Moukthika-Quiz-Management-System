@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Moukthika Online Quiz System</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header>
+    <h1>🎓 Moukthika</h1>
+    <p>Online Quiz Examination Management System</p>
+</header>
+
+<main>
+
+    <!-- LOGIN SECTION -->
+
+    <section id="loginSection" class="container">
+
+        <h2>Login</h2>
+
+        <input type="email" id="loginEmail"
+               placeholder="Enter Email">
+
+        <input type="password" id="loginPassword"
+               placeholder="Enter Password">
+
+        <button onclick="login()">Login</button>
+
+        <p>Don't have an account?
+            <a href="#" onclick="showRegister()">Register</a>
+        </p>
+
+    </section>
+
+
+    <!-- REGISTER SECTION -->
+
+    <section id="registerSection" class="container hidden">
+
+        <h2>Register</h2>
+
+        <input type="text" id="regName"
+               placeholder="Enter Name">
+
+        <input type="email" id="regEmail"
+               placeholder="Enter Email">
+
+        <input type="password" id="regPassword"
+               placeholder="Enter Password">
+
+        <select id="regRole">
+
+            <option value="student">Student</option>
+            <option value="teacher">Teacher</option>
+
+        </select>
+
+        <button onclick="register()">Register</button>
+
+        <p>Already registered?
+            <a href="#" onclick="showLogin()">Login</a>
+        </p>
+
+    </section>
+
+
+    <!-- TEACHER DASHBOARD -->
+
+    <section id="teacherDashboard" class="hidden">
+
+        <div class="container">
+
+            <h2>Teacher Dashboard</h2>
+
+            <p id="teacherName"></p>
+
+            <button onclick="logout()">Logout</button>
+
+            <hr>
+
+            <h3>Create New Quiz</h3>
+
+            <input type="text" id="quizTitle"
+                   placeholder="Quiz Title">
+
+            <input type="text" id="quizSubject"
+                   placeholder="Subject">
+
+            <input type="number" id="quizMarks"
+                   placeholder="Total Marks">
+
+            <input type="number" id="quizDuration"
+                   placeholder="Duration in Minutes">
+
+            <button onclick="createQuiz()">
+                Create Quiz
+            </button>
+
+            <hr>
+
+            <h3>Add Questions</h3>
+
+            <select id="questionQuiz"></select>
+
+            <textarea id="questionText"
+                      placeholder="Enter Question"></textarea>
+
+            <input type="text" id="optionA"
+                   placeholder="Option A">
+
+            <input type="text" id="optionB"
+                   placeholder="Option B">
+
+            <input type="text" id="optionC"
+                   placeholder="Option C">
+
+            <input type="text" id="optionD"
+                   placeholder="Option D">
+
+            <select id="correctAnswer">
+
+                <option value="A">Correct Answer A</option>
+                <option value="B">Correct Answer B</option>
+                <option value="C">Correct Answer C</option>
+                <option value="D">Correct Answer D</option>
+
+            </select>
+
+            <button onclick="addQuestion()">
+                Add Question
+            </button>
+
+            <hr>
+
+            <h3>My Quizzes</h3>
+
+            <div id="teacherQuizzes"></div>
+
+            <hr>
+
+            <h3>Student Examination Results</h3>
+
+            <div id="teacherResults"></div>
+
+        </div>
+
+    </section>
+
+
+    <!-- STUDENT DASHBOARD -->
+
+    <section id="studentDashboard" class="hidden">
+
+        <div class="container">
+
+            <h2>Student Dashboard</h2>
+
+            <p id="studentName"></p>
+
+            <button onclick="logout()">Logout</button>
+
+            <hr>
+
+            <h3>Available Quizzes</h3>
+
+            <div id="availableQuizzes"></div>
+
+            <hr>
+
+            <h3>My Examination Results</h3>
+
+            <div id="studentResults"></div>
+
+        </div>
+
+    </section>
+
+
+    <!-- EXAMINATION SECTION -->
+
+    <section id="examSection" class="container hidden">
+
+        <h2 id="examTitle">Online Examination</h2>
+
+        <p id="examTimer"></p>
+
+        <div id="examQuestions"></div>
+
+        <button onclick="submitExam()">
+            Submit Examination
+        </button>
+
+        <button onclick="backToDashboard()">
+            Back to Dashboard
+        </button>
+
+    </section>
+
+
+    <!-- RESULT SECTION -->
+
+    <section id="resultSection" class="container hidden">
+
+        <h2>Examination Result</h2>
+
+        <h3 id="resultScore"></h3>
+
+        <p id="resultMessage"></p>
+
+        <button onclick="backToDashboard()">
+            Go to Dashboard
+        </button>
+
+    </section>
+
+</main>
+
+<script src="app.js"></script>
+
+</body>
+</html>
